@@ -1,1 +1,3 @@
 netstat -anp4 | awk 'NR !=1 {a[$6]++} END{for (i in a) print i,"\t",a[i]}'
+
+netstat -anp|awk '$6~/LISTEN|CONNECTED/{sum[$6]++} END{for (i in sum) printf "%-10s %-6s %-3s \n", i," ",sum[i]}'
